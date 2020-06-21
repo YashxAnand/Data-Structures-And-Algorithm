@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Heap {
-    ArrayList<Integer> heap;
+    ArrayList<Integer> heap; // MAX HEAP
 
     public Heap(int capacity) {
         heap = new ArrayList<>(capacity);
@@ -93,6 +93,7 @@ public class Heap {
     }
 
     void sort() {
+        // ASCENDING ORDER
         int lastHeapindex = heap.size() - 1;
 
         while (lastHeapindex > 0) {
