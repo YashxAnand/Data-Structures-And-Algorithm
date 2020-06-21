@@ -92,6 +92,18 @@ public class Heap {
         return 2 * index + (left ? 1 : 2);
     }
 
+    void sort() {
+        int lastHeapindex = heap.size() - 1;
+
+        while (lastHeapindex > 0) {
+            Integer temp = heap.get(0);
+            heap.set(0, heap.get(lastHeapindex));
+            heap.set(lastHeapindex, temp);
+            lastHeapindex--;
+            heapifyDown(0, lastHeapindex);
+        }
+    }
+
     public static void main(String[] args) {
         Heap heap = new Heap(20);
         heap.insert(80);
@@ -105,7 +117,7 @@ public class Heap {
 
         heap.heap.forEach(element -> System.out.print(element + " "));
         System.out.println();
-        heap.delete(80);
+        heap.sort();
         heap.heap.forEach(element -> System.out.print(element + " "));
         System.out.println();
 
